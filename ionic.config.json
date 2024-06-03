@@ -1,0 +1,7 @@
+{
+  "name": "Unreasonable_Pizza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
