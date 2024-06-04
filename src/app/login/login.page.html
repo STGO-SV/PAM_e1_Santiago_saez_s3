@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <img src="assets/logo_pizza.png" alt="App Logo" width="100">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese un correo electrónico válido.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+      <ion-text color="danger">La contraseña debe tener entre 6 y 8 caracteres, incluyendo una mayúscula y un número.</ion-text>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+  </form>
+
+  <div *ngIf="errorMessage" class="ion-text-center error-message">
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+  </div>
+
+  <div class="ion-text-center">
+    <p>¿Aún no tienes una cuenta?</p>
+    <ion-button fill="clear" (click)="navigateToRegister()">Crear cuenta</ion-button>
+  </div>
+</ion-content>

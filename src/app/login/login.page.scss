@@ -1,0 +1,16 @@
+.error-message {
+    margin-left: 16px;
+    font-size: 12px;
+  }
+  
+  ion-header {
+    --background: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }

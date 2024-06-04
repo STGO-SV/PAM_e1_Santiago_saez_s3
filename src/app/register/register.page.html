@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <img src="assets/logo_pizza.png" alt="App Logo" width="100">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="firstName" type="text"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese su nombre.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input formControlName="lastName" type="text"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese su apellido.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Ingrese su Nro. de teléfono</ion-label>
+      <ion-input formControlName="phoneNumber" type="number"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese un número de teléfono válido de 9 dígitos.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Ingrese correo electrónico</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese una dirección de correo electrónico válida.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input formControlName="address" type="text"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched" class="error-message">
+      <ion-text color="danger">Ingrese su dirección.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Crear Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error-message">
+      <ion-text color="danger">La contraseña debe tener entre 6 y 8 caracteres, incluyendo una mayúscula y un número.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input formControlName="confirmPassword" type="password"></ion-input>
+    </ion-item>
+    <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error-message">
+      <ion-text color="danger">Las contraseñas no coinciden.</ion-text>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="registerForm.invalid">Registrar</ion-button>
+
+    <div *ngIf="errorMessage" class="error-message ion-text-center">
+      <ion-text color="danger">{{ errorMessage }}</ion-text>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mi Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of cart">
+      <ion-label>
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.quantity }} x ${{ item.price }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label>
+      <h2>Total</h2>
+    </ion-label>
+    <ion-note slot="end" color="primary">${{ getTotal() }}</ion-note>
+  </ion-item>
+  <ion-button expand="full" (click)="clearCart()">Limpiar Carrito</ion-button>
+</ion-content>
